@@ -112,6 +112,7 @@ export default function SearchPage(props: SearchPageProps) {
 										price={ item.price }
 										measurement={ item.measurement }
 										link={ item.link }
+										supermarket= { item.supermarket }
 									/>
 								)}
 								keyExtractor={(item, index) => index.toString()}

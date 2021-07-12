@@ -10,19 +10,45 @@ export default function SearchResult(props: FoodProduct) {
 		await WebBrowser.openBrowserAsync(props.link);
 	}
 
+	const tagNTUC = () => 
+		(<View style={{ ...styles.detailsTextContainer, backgroundColor: "#1D4ED8" }}>
+			<Text style={{ ...styles.detailsText, color: '#F87171' }}>NTUC FairPrice</Text>
+		</View>)
+	
+
+	const tagColdStorage = () => 
+		(<View style={{ ...styles.detailsTextContainer, backgroundColor: "#FCA5A5" }}>
+			<Text style={{ ...styles.detailsText, color: '#1D4ED8' }}>Cold Storage</Text>
+		</View>)
+	
+
+	const generateSupermarketTag = () => {
+		switch(props.supermarket) {
+			case "ntuc":
+				return tagNTUC()
+			case "cold-storage":
+				return tagColdStorage()
+		}
+	}
+
 	return (
 		<TouchableOpacity 
 			style={styles.container} 
 			onPress={handleSeeProductAsync}
 		>
 			<Text style={styles.titleText}>{props.title}</Text>
-			<View style={styles.detailsContainer}>
-				<View style={styles.detailsTextContainer}>
-					<Text style={styles.detailsText}>${props.price}</Text>
+			<View style={{ flexDirection: 'column' }}>
+				<View style={styles.detailsContainer}>
+					<View style={styles.detailsTextContainer}>
+						<Text style={styles.detailsText}>${props.price}</Text>
+					</View>
+
+					{ (props.measurement !== "") && (<View style={styles.detailsTextContainer}>
+						<Text style={styles.detailsText}>{props.measurement}</Text>
+					</View>)}
 				</View>
-				{ (props.measurement !== "") && (<View style={styles.detailsTextContainer}>
-					<Text style={styles.detailsText}>{props.measurement}</Text>
-				</View>)}
+
+				{ generateSupermarketTag() }
 			</View>
 		</TouchableOpacity>
 	)

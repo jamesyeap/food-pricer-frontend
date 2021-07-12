@@ -14,6 +14,7 @@ export type FoodProduct = {
 	price: number;
 	measurement: number;
 	link: string;
+	supermarket: string;
 }
 
 type Action = {

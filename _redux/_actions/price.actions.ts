@@ -11,7 +11,7 @@ export const START_LOADING = 'PRICE/START_LOADING'
 export const END_LOADING = 'PRICE/END_LOADING'
 
 /* API-CLIENT */
-const url = "https://food-pricer.herokuapp.com/ntuc/"
+const url = "https://food-pricer.herokuapp.com/"
 // const url = "http://127.0.0.1:5000/ntuc/"
 
 const sendRequest = (searchQuery: string) => {
