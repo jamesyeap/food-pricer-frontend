@@ -35,7 +35,7 @@ export default function SearchPage(props: SearchPageProps) {
 					loop
 					autoSize 
 				/>
-				<Text style={styles.animationText}>Searching..</Text>
+				<Text style={styles.animationText}>Searching...</Text>
 			</View>
 	)}
 
